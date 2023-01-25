@@ -1,7 +1,7 @@
 name: Python package
 on: [push]
 jobs:
-  build:
+  build-with-matrix:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,5 +14,17 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+  
+  build-specific-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
