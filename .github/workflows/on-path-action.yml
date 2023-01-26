@@ -10,6 +10,6 @@ jobs:
       - uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          text: "Modificaste o arquivo main.py @here"
+          text: "Modificaste o arquivo main.py @here @todos"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
