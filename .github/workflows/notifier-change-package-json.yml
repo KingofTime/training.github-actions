@@ -10,4 +10,4 @@ jobs:
           text: "<!channel>Modificaste o arquivo main.py <!here>"
           fields: workflow,job,commit,repo,author
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFIER }}
