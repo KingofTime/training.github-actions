@@ -1,0 +1,19 @@
+name: Change Package.json
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'package.json'
+
+jobs:
+  notifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          text: "<!channel> Arquivo package.json modificado"
+          fields: repo,message,commit,author,pullRequest
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFIER }}
