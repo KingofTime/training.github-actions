@@ -14,6 +14,7 @@ jobs:
         with:
           status: ${{ job.status }}
           text: "<!channel> Arquivo package.json modificado"
-          fields: repo,message,commit,author,pullRequest
+          job_name: Change in package.json
+          fields: job,repo,message,commit,author
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFIER }}
