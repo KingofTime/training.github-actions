@@ -1,14 +1,13 @@
-name: Change Package.json
+name: On Path event
 on: [push]
-
 jobs:
   notifier:
     runs-on: ubuntu-latest
     steps:
       - uses: 8398a7/action-slack@v3
         with:
-          status: custom
-          text: "<!channel>"
-          fields: workflow,job,commit,repo,ref,author,took
+          status: ${{ job.status }}
+          text: "<!channel>Modificaste o arquivo main.py <!here>"
+          fields: workflow,job,commit,repo,author
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFIER }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
