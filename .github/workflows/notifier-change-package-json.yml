@@ -1,10 +1,5 @@
 name: Change Package.json
-on:
-  push:
-    branches:
-      - develop
-    paths:
-      - 'package.json'
+on: [push]
 
 jobs:
   notifier:
