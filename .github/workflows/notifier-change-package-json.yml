@@ -1,10 +1,5 @@
 name: On Path event
-on:
-  push:
-    branches:
-      - develop
-    paths:
-      - 'package.json'
+on: [push]
 jobs:
   notifier:
     runs-on: ubuntu-latest
