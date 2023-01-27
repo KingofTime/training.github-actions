@@ -12,7 +12,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning', 
-                text: `<!channel>\nChange package.json\n <b>commit:</b>(${process.env.AS_COMMIT}) of ${process.env.AS_REPO} by ${process.env.AS_AUTHOR}\n ${{ job.status }} in ${process.env.AS_TOOK}`,
+                text: `<!channel>\nChange package.json\n **commit:**(${process.env.AS_COMMIT}) of ${process.env.AS_REPO} by ${process.env.AS_AUTHOR}\n ${{ job.status }} in ${process.env.AS_TOOK}`,
               }]
             }
         env:
