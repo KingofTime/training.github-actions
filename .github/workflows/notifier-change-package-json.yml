@@ -14,13 +14,13 @@ jobs:
         with:
           status: custom
           text: "<!channel>"
-          fields: job
+          fields: workflow,job,commit,repo,ref,author,took
           custom_payload: |
-          {
-            attachments: [{
-              color: '%{{ job.status }}' === 'success' ? 'good' : '${{ job.status }} === 'failure' ? 'danger' : 'warning',
-              text: `Change in package.json in commit(${process.env.AS_COMMIT}) of ${process.env.AS_REPO} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`
-            }]
-          }
+            {
+              attachments: [{
+                color: '%{{ job.status }}' === 'success' ? 'good' : '${{ job.status }} === 'failure' ? 'danger' : 'warning',
+                text: `Change in package.json in commit(${process.env.AS_COMMIT}) of ${process.env.AS_REPO} by ${process.env.AS_AUTHOR} ${{ job.status }} in ${process.env.AS_TOOK}`
+              }]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL_NOTIFIER }}
